@@ -1,0 +1,47 @@
+=========================
+JIANU Maria 331CB
+	Tema1 EGC
+=========================
+
+	Implementarea temei mele se imparte in 3 componente: desenarea pasarii,
+desenarea obstacolelor de sus si desenarea obstacolelor de jos.
+
+1. Pasarea
+	Este formata din 2 cuburi (corp si cap), un triunghi pentru cioc si doua
+alte triunghiuri pentru aripi. Am implementat animatia pentru felul in
+care pasarea da din aripi printr-o rotatie (45°) a triunghiurilor in jurul 
+centrelor lor de greutate.
+	Pasarea se misca doar pe axa OY, are o translatie continua in jos, iar
+la apasarea tastei SPACE are loc un salt.
+	Am desenat formele geometrice pentru pasare cu ajutorul functiilor
+CreateSquare() si CreateTraingle() din Object2D.cpp.
+
+2. Obstacolele de sus
+	Am folosit acelasi patrat, randat la pozitii diferite pe axa OX,
+si scalat cu factori diferiti.
+	Atunci cand un patrat iese din ecran el este translatat pe OX cu
+dimensiunea ecranului + distanta dintre 2 obstacole.
+
+3. Obstacolele de jos
+	Pentru aceste obstacole am folosit functia CreateSquareRight() care
+face un patrat, dar care are centrul de greutate in coltul dreapta sus
+in loc de coltul din stanga jos ca pana acum. Am facut acest lucru pentru
+ca scalarea pe OY sa ramana asemanatoare cu cazul obstacolelor de sus.
+
+-> Pentru ca obstacolele sa fie "complementare", astfel ca traseul pasarii
+sa fie un zig-zag am scalat cu factori complementari obstacolele de sus si
+de jos in functie de indexul lor (par - impar).
+
+-> Pentru ciocniri am incadrat pasarea intr-un dreptungi si verific latura
+superioara a dreptunghiului pentru ciocnirea cu obstacolele de sus, iar 
+pentru ciocnirea cu cele de jos verific latura inferioara.
+
+-> Atunci cand s-a atins scorul de 500, obstacolele incep sa gliseze.
+
+-> La fiecare 500 de puncte viteza cu care se misca obstacolele spre stanga 
+creste, astfel jocul devine mai dificil.
+
+
+
+
+
